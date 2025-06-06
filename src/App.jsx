@@ -270,13 +270,14 @@ function App() {
         image1: slidesData[index].image,
         image2: slidesData[index].image, // Use same image to avoid displacement with video
         displacementImage: displacementImage,
-        speedIn: 2,
-        speedOut: 2,
+        speedIn: 4,
+        speedOut: 4,
       });
 
       // Handle hover to show video
       imageDiv.addEventListener('mouseenter', () => {
         videoElement.style.opacity = 1;
+        videoElement.style.transitionDelay = '0.35s';
         videoElement.play();
       });
 
@@ -313,8 +314,6 @@ function App() {
         });
 
         const textElement = slide.querySelector('.text');
-        const textMove = current * 1.05;
-        gsap.set(textElement, { x: -textMove });
 
         const textRect = textElement.getBoundingClientRect();
         const textCenter = textRect.left + textRect.width / 2;
